@@ -11,6 +11,7 @@ namespace WindForm_fetch_API
         public Form1()
         {
             InitializeComponent();
+            listUser = new List<User>();
         }
 
         private async void Fetch_Click(object sender, EventArgs e)
@@ -41,7 +42,8 @@ namespace WindForm_fetch_API
 
                 bool isSuccess = await _userService.CrateAsync(user);
 
-                if (isSuccess) {
+                if (isSuccess)
+                {
                     Tb1.Clear();
                     Tb2.Clear();
                     Tb3.Clear();
@@ -57,6 +59,34 @@ namespace WindForm_fetch_API
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private async void BtnCari_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string id = TbId.Text;
+                if(listUser.Count > 0)
+                {
+
+                    dataGridView1.DataSource = null;
+                }
+                else
+                {
+                    listUser = new List<User>();
+                }
+                User user = await _userService.GetUserById(id);
+                //dataGridView1.;
+                listUser.Clear();
+                listUser.Add(user);
+               
+                dataGridView1.DataSource = listUser;
+                TbId.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

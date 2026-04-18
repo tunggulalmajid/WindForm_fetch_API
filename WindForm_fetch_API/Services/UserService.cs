@@ -51,5 +51,26 @@ namespace WindForm_fetch_API.Services
                 throw new Exception();
             }
         }
+
+        public async Task<User> GetUserById(string id)
+        {
+            try
+            {
+                
+                var response = await _httpClient.GetAsync($"{Endpoint}/{id}");
+                response.EnsureSuccessStatusCode();
+
+                string jsonRes = await response.Content.ReadAsStringAsync();
+                var jsonObject = JObject.Parse(jsonRes);
+                var data = jsonObject["data"].ToString();
+                var users = JsonConvert.DeserializeObject<User>(data);
+
+                return users;
+            }
+            catch (Exception ex) 
+            {
+                throw new Exception();
+            }
+        }
     }
 }

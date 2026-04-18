@@ -39,22 +39,25 @@
             BtnPost = new Button();
             label2 = new Label();
             Tb4 = new TextBox();
+            TbId = new TextBox();
+            BtnCari = new Button();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(276, 56);
+            dataGridView1.Location = new Point(238, 33);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(451, 263);
+            dataGridView1.Size = new Size(330, 263);
             dataGridView1.TabIndex = 0;
             // 
             // Fetch
             // 
             Fetch.BackColor = SystemColors.Highlight;
             Fetch.ForeColor = SystemColors.ButtonHighlight;
-            Fetch.Location = new Point(321, 361);
+            Fetch.Location = new Point(323, 324);
             Fetch.Name = "Fetch";
             Fetch.Size = new Size(154, 41);
             Fetch.TabIndex = 1;
@@ -64,29 +67,29 @@
             // 
             // Tb1
             // 
-            Tb1.Location = new Point(35, 58);
+            Tb1.Location = new Point(29, 33);
             Tb1.Name = "Tb1";
-            Tb1.Size = new Size(225, 23);
+            Tb1.Size = new Size(176, 23);
             Tb1.TabIndex = 2;
             // 
             // Tb2
             // 
-            Tb2.Location = new Point(35, 119);
+            Tb2.Location = new Point(29, 94);
             Tb2.Name = "Tb2";
-            Tb2.Size = new Size(225, 23);
+            Tb2.Size = new Size(176, 23);
             Tb2.TabIndex = 3;
             // 
             // Tb3
             // 
-            Tb3.Location = new Point(35, 175);
+            Tb3.Location = new Point(29, 150);
             Tb3.Name = "Tb3";
-            Tb3.Size = new Size(225, 23);
+            Tb3.Size = new Size(176, 23);
             Tb3.TabIndex = 4;
             // 
             // Nama
             // 
             Nama.AutoSize = true;
-            Nama.Location = new Point(35, 40);
+            Nama.Location = new Point(29, 15);
             Nama.Name = "Nama";
             Nama.Size = new Size(39, 15);
             Nama.TabIndex = 5;
@@ -95,7 +98,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(36, 101);
+            label1.Location = new Point(30, 76);
             label1.Name = "label1";
             label1.Size = new Size(36, 15);
             label1.TabIndex = 6;
@@ -104,7 +107,7 @@
             // Hutang
             // 
             Hutang.AutoSize = true;
-            Hutang.Location = new Point(38, 157);
+            Hutang.Location = new Point(32, 132);
             Hutang.Name = "Hutang";
             Hutang.Size = new Size(47, 15);
             Hutang.TabIndex = 7;
@@ -113,9 +116,9 @@
             // BtnPost
             // 
             BtnPost.BackColor = Color.Lime;
-            BtnPost.Location = new Point(35, 290);
+            BtnPost.Location = new Point(30, 255);
             BtnPost.Name = "BtnPost";
-            BtnPost.Size = new Size(225, 41);
+            BtnPost.Size = new Size(175, 41);
             BtnPost.TabIndex = 8;
             BtnPost.Text = "Post";
             BtnPost.UseVisualStyleBackColor = false;
@@ -124,26 +127,56 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(39, 214);
+            label2.Location = new Point(33, 189);
             label2.Name = "label2";
             label2.Size = new Size(57, 15);
             label2.TabIndex = 10;
             label2.Text = "Networks";
-       
             // 
             // Tb4
             // 
-            Tb4.Location = new Point(36, 232);
+            Tb4.Location = new Point(30, 207);
             Tb4.Name = "Tb4";
-            Tb4.Size = new Size(225, 23);
+            Tb4.Size = new Size(176, 23);
             Tb4.TabIndex = 9;
             Tb4.TextChanged += textBox1_TextChanged;
+            // 
+            // TbId
+            // 
+            TbId.Location = new Point(589, 46);
+            TbId.Name = "TbId";
+            TbId.Size = new Size(147, 23);
+            TbId.TabIndex = 11;
+            // 
+            // BtnCari
+            // 
+            BtnCari.BackColor = Color.Teal;
+            BtnCari.ForeColor = SystemColors.ButtonHighlight;
+            BtnCari.Location = new Point(589, 76);
+            BtnCari.Name = "BtnCari";
+            BtnCari.Size = new Size(147, 41);
+            BtnCari.TabIndex = 12;
+            BtnCari.Text = "Cari";
+            BtnCari.UseVisualStyleBackColor = false;
+            BtnCari.Click += BtnCari_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(589, 28);
+            label3.Name = "label3";
+            label3.Size = new Size(85, 15);
+            label3.TabIndex = 13;
+            label3.Text = "Cari Dengan Id";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label3);
+            Controls.Add(BtnCari);
+            Controls.Add(TbId);
             Controls.Add(label2);
             Controls.Add(Tb4);
             Controls.Add(BtnPost);
@@ -175,5 +208,8 @@
         private Button BtnPost;
         private Label label2;
         private TextBox Tb4;
+        private TextBox TbId;
+        private Button BtnCari;
+        private Label label3;
     }
 }
