@@ -39,9 +39,9 @@ namespace WindForm_fetch_API.Services
         {
             try
             {
+                
                 string json = JsonConvert.SerializeObject(user);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
-
                 var response = await _httpClient.PostAsync(Endpoint, data);
                 response.EnsureSuccessStatusCode();
                 return true;
@@ -93,16 +93,6 @@ namespace WindForm_fetch_API.Services
                 return response.IsSuccessStatusCode;
             }
             catch { throw new Exception("Gagal menghapus data"); }
-        }
-
-
-        public async Task<bool> UpdateSaldoAsync(string id, Int128 newSaldo)
-        {
-            var payload = new { saldo = newSaldo };
-            string json = JsonConvert.SerializeObject(payload);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await _httpClient.PatchAsync($"{Endpoint}/{id}/saldo", data);
-            return response.IsSuccessStatusCode;
         }
     }
 }

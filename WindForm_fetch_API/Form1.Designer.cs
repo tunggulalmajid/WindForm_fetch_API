@@ -62,7 +62,7 @@
             // 
             Fetch.BackColor = SystemColors.Highlight;
             Fetch.ForeColor = SystemColors.ActiveCaptionText;
-            Fetch.Location = new Point(764, 424);
+            Fetch.Location = new Point(764, 423);
             Fetch.Name = "Fetch";
             Fetch.Size = new Size(215, 53);
             Fetch.TabIndex = 1;
