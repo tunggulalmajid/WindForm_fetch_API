@@ -72,5 +72,37 @@ namespace WindForm_fetch_API.Services
                 throw new Exception();
             }
         }
+
+        public async Task<bool> UpdateAsync(string id, User user)
+        {
+            try
+            {
+                string json = JsonConvert.SerializeObject(user);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await _httpClient.PutAsync($"{Endpoint}/{id}", data);
+                return response.IsSuccessStatusCode;
+            }
+            catch { throw new Exception("Gagal update data"); }
+        }
+
+        public async Task<bool> DeleteAsync(string id)
+        {
+            try
+            {
+                var response = await _httpClient.DeleteAsync($"{Endpoint}/{id}");
+                return response.IsSuccessStatusCode;
+            }
+            catch { throw new Exception("Gagal menghapus data"); }
+        }
+
+
+        public async Task<bool> UpdateSaldoAsync(string id, Int128 newSaldo)
+        {
+            var payload = new { saldo = newSaldo };
+            string json = JsonConvert.SerializeObject(payload);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await _httpClient.PatchAsync($"{Endpoint}/{id}/saldo", data);
+            return response.IsSuccessStatusCode;
+        }
     }
 }
